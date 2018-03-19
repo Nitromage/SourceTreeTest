@@ -18,7 +18,11 @@ UDudes::UDudes()
 void UDudes::BeginPlay()
 {
 	Super::BeginPlay();
+<<<<<<< HEAD
 	//hejhej
+=======
+	//i was not here Steffen !!!!
+>>>>>>> 5cf934aedd5f03c7c21e345d33a768cba0c29d61
 	// ...
 	
 }

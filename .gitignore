@@ -5,3 +5,5 @@
 */DerivedDataCache
 *_BuiltData.uasset
 *.VC.db
+*.opendb
+*.sln

@@ -16,7 +16,6 @@ private:
 	UPROPERTY(EditAnywhere, Category = Basic) AActor* star;
 	UPROPERTY(EditAnywhere, Category = Basic) int coinCount;
 	bool isChecking = true;
-	AActor* gameMode;
 public:	
 	// Sets default values for this actor's properties
 	ACountCoins();

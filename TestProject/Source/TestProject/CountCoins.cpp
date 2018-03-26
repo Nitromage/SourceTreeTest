@@ -16,14 +16,15 @@ void ACountCoins::BeginPlay()
 {
 	Super::BeginPlay();
 	star->SetActorHiddenInGame(false);
-	gamemode = Cast<game
+	//gamemode = GetWorld()->GetAuthGameMode();
+	
 }
 
 // Called every frame
 void ACountCoins::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	 GetWorld()->GetAuthGameMode()
-	AMyGameMode * mymode = Cast<AMyGameMode>(GetWorld()->GetAuthGameMode());
+	//GetWorld()->GetAuthGameMode()
+	//AMyGameMode * mymode = Cast<AMyGameMode>(GetWorld()->GetAuthGameMode());
 }
 

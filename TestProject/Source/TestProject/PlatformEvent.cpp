@@ -32,11 +32,11 @@ void UPlatformEvent::TickComponent(float DeltaTime, ELevelTick TickType, FActorC
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 	FVector newLocation = platform->GetActorLocation();
 	if (PlateIsON && newLocation.Z > ZMinPos) {
-		newLocation.Z -= ZPositionDistance * DeltaTime;
+		newLocation.Z -= speed * DeltaTime;
 	}
 	else if(!PlateIsON && newLocation.Z < ZMaxPos)
 	{
-		newLocation.Z += ZPositionDistance * DeltaTime;
+		newLocation.Z += speed * DeltaTime;
 	}
 	platform->SetActorLocation(newLocation);
 	// ...

@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "CountCoins.h"
-
+//INCLUDE ME IN THE PROJECT YEAY
 
 // Sets default values
 ACountCoins::ACountCoins()

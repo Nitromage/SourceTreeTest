@@ -13,7 +13,7 @@ class TESTPROJECT_API UPlatformEvent : public UActorComponent
 	GENERATED_BODY()
 private:
 	UPROPERTY(EditAnywhere)
-		float ZPositionDistance;
+		float speed;
 	UPROPERTY(EditAnywhere)
 		float ZMinPos;
 	UPROPERTY(EditAnywhere)

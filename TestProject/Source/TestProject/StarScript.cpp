@@ -3,7 +3,8 @@
 #include "StarScript.h"
 #include "Gameframework/Actor.h"
 #include "Runtime/Engine/Classes/Components/PrimitiveComponent.h"
-
+#include "MySaveGame.h"
+#include "Kismet/GameplayStatics.h"
 // Sets default values for this component's properties
 UStarScript::UStarScript()
 {
@@ -19,9 +20,10 @@ UStarScript::UStarScript()
 void UStarScript::BeginPlay()
 {
 	Super::BeginPlay();
-	owner = GetOwner();
+
+
 	// ...
-	
+
 }
 
 
@@ -31,5 +33,25 @@ void UStarScript::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
+}
+void UStarScript::LoadIDTest()
+{
+
+	UMySaveGame* LoadGameInstance = Cast<UMySaveGame>(UGameplayStatics::CreateSaveGameObject(UMySaveGame::StaticClass()));
+	LoadGameInstance = Cast<UMySaveGame>(UGameplayStatics::LoadGameFromSlot(LoadGameInstance->SaveSlotName, LoadGameInstance->UserIndex));
+	if (id == LoadGameInstance->saveID) {
+		//owner->Destroy();
+		UE_LOG(LogTemp, Warning, TEXT("im it"));
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("I am not it"));
+	}
+}
+void UStarScript::SaveIDTest()
+{
+	int32 sendID = id;
+	UMySaveGame* SaveGameInstance = Cast<UMySaveGame>(UGameplayStatics::CreateSaveGameObject(UMySaveGame::StaticClass()));
+	SaveGameInstance->saveID = sendID;
+	UGameplayStatics::SaveGameToSlot(SaveGameInstance, SaveGameInstance->SaveSlotName, SaveGameInstance->UserIndex);
 }
 

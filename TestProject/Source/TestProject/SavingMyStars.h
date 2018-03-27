@@ -14,7 +14,7 @@ class TESTPROJECT_API USavingMyStars : public UActorComponent
 
 
 private:
-	FString ID;
+	int ID;
 
 public:	
 	// Sets default values for this component's properties

@@ -4,5 +4,3 @@
 
 #include "CoreMinimal.h"
 #include "Engine.h"
-#include "SaveStarsThing.h"
-#include "Kismet/GameplayStatics.h"

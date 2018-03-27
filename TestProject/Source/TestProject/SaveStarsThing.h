@@ -15,7 +15,7 @@ class TESTPROJECT_API USaveStarsThing : public USaveGame
 public:
 
 	UPROPERTY(VisibleAnywhere, Category = Basic)
-		AActor* Stars;
+		bool picked;
 
 	UPROPERTY(VisibleAnywhere, Category = Basic)
 		FString SaveSlotName;
@@ -24,5 +24,5 @@ public:
 		uint32 UserIndex;
 
 	USaveStarsThing();
-
+	void SaveStar();
 };

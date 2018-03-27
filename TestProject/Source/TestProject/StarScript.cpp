@@ -39,19 +39,18 @@ void UStarScript::LoadIDTest()
 
 	UMySaveGame* LoadGameInstance = Cast<UMySaveGame>(UGameplayStatics::CreateSaveGameObject(UMySaveGame::StaticClass()));
 	LoadGameInstance = Cast<UMySaveGame>(UGameplayStatics::LoadGameFromSlot(LoadGameInstance->SaveSlotName, LoadGameInstance->UserIndex));
-	if (id == LoadGameInstance->saveID) {
+	if (LoadGameInstance->intArray.Contains(id)) {
 		//owner->Destroy();
-		UE_LOG(LogTemp, Warning, TEXT("im it"));
+		UE_LOG(LogTemp, Warning, TEXT("im in it"));
 	}
 	else {
-		UE_LOG(LogTemp, Warning, TEXT("I am not it"));
+		UE_LOG(LogTemp, Warning, TEXT("I am not in it"));
 	}
 }
 void UStarScript::SaveIDTest()
 {
-	int32 sendID = id;
 	UMySaveGame* SaveGameInstance = Cast<UMySaveGame>(UGameplayStatics::CreateSaveGameObject(UMySaveGame::StaticClass()));
-	SaveGameInstance->saveID = sendID;
+	SaveGameInstance->saveID = id;
 	UGameplayStatics::SaveGameToSlot(SaveGameInstance, SaveGameInstance->SaveSlotName, SaveGameInstance->UserIndex);
 }
 

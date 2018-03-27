@@ -3,9 +3,9 @@
 #include "MySaveGame.h"
 
 UMySaveGame::UMySaveGame() {
-	/*if (!IntArray.Contains(saveID)) {
-		IntArray.Add(saveID);
-	}*/
+	if (!intArray.Contains(saveID)) {
+		intArray.Add(saveID);
+	}
 	SaveSlotName = TEXT("TestSaveSlot");
 	UserIndex = 0;
 }

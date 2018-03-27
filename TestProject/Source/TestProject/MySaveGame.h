@@ -19,7 +19,7 @@ public:
 	UPROPERTY(EditAnywhere)
 		int32 saveID;
 	UPROPERTY(VisibleAnywhere, Category = Basic)
-		TArray<float> FloatArray;
+		TArray<int32> intArray;
 	UPROPERTY(VisibleAnywhere, Category = Basic)
 		FString SaveSlotName;
 

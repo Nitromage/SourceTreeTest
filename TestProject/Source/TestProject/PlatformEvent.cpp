@@ -26,18 +26,35 @@ void UPlatformEvent::BeginPlay()
 	
 }
 
-
+//Maz to Min platform
 // Called every frame
 void UPlatformEvent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 	FVector newLocation = platform->GetActorLocation();
-	if (PlateIsON && newLocation.Z > ZMinPos) {
+	//Z
+	if (PlateIsON && newLocation.Z > ZMinPos && isZ & !isY & !isX) {
 		newLocation.Z -= speed * DeltaTime;
 	}
-	else if(!PlateIsON && newLocation.Z < ZMaxPos)
+	else if(!PlateIsON && newLocation.Z < ZMaxPos && isZ & !isY & !isX)
 	{
 		newLocation.Z += speed * DeltaTime;
+	}
+	//X
+	if (PlateIsON && newLocation.X > XMinPos && isX & !isY & !isZ) {
+		newLocation.X -= speed * DeltaTime;
+	}
+	else if (!PlateIsON && newLocation.X < XMaxPos && isX & !isY & !isZ)
+	{
+		newLocation.X += speed * DeltaTime;
+	}
+	//Y
+	if (PlateIsON && newLocation.Y > YMinPos && isY & !isZ & !isX) {
+		newLocation.Y -= speed * DeltaTime;
+	}
+	else if (!PlateIsON && newLocation.Y < YMaxPos && isY & !isZ & !isX)
+	{
+		newLocation.Y += speed * DeltaTime;
 	}
 	platform->SetActorLocation(newLocation);
 	// ...

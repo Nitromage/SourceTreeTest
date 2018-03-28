@@ -1,20 +1,24 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
+
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "PlatformEvent.generated.h"
+#include "NormalPlatform.generated.h"
 
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
-class TESTPROJECT_API UPlatformEvent : public UActorComponent
+class TESTPROJECT_API UNormalPlatform : public UActorComponent
 {
 	GENERATED_BODY()
 private:
+	AActor* platform = GetOwner();
+
+
 	UPROPERTY(EditAnywhere)
 		float speed;
 	UPROPERTY(EditAnywhere)
-		bool isZ;	
+		bool isZ;
 	UPROPERTY(EditAnywhere)
 		float ZMinPos;
 	UPROPERTY(EditAnywhere)
@@ -31,11 +35,11 @@ private:
 		float YMinPos;
 	UPROPERTY(EditAnywhere)
 		float YMaxPos;
-	AActor* platform = GetOwner();
 
+	bool goMax;
 public:
 	// Sets default values for this component's properties
-	UPlatformEvent();
+	UNormalPlatform();
 
 protected:
 	// Called when the game starts
@@ -44,11 +48,7 @@ protected:
 public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "PlateIsOn")
-		bool PlateIsON;
-
-
-
-
+	void MoveZ();
+	void MoveY();
+	void MoveX();
 };

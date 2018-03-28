@@ -11,7 +11,16 @@ UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class TESTPROJECT_API UOpenDoor : public UActorComponent
 {
 	GENERATED_BODY()
+private:
+	UPROPERTY(EditAnywhere)
+		float speed;
 
+	UPROPERTY(EditAnywhere)
+		float ZMinPos;
+	UPROPERTY(EditAnywhere)
+		float ZMaxPos;
+	
+	AActor* door = GetOwner();
 public:	
 	// Sets default values for this component's properties
 	UOpenDoor();
@@ -24,6 +33,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "PlateIsOn")
+		bool PlateIsON;
 	
 };

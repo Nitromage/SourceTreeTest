@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "OpenDoor.h"
+#include "Gameframework/Actor.h"
 
 
 // Sets default values for this component's properties
@@ -28,7 +29,17 @@ void UOpenDoor::BeginPlay()
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
+	FRotator newLocation = door->GetActorRotation();
+	//Z
+	/*if (PlateIsON ) {
+		newLocation.z -= speed * DeltaTime;
+	}
+	else if (!PlateIsON && newLocation.Z < ZMaxPos && isZ & !isY & !isX)
+	{
+		newLocation.Z += speed * DeltaTime;
+	}
+	*/
+	door->SetActorRotation(newLocation);
 	// ...
 }
 

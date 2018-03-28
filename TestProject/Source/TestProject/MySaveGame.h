@@ -24,5 +24,5 @@ public:
 		FString SaveSlotName;
 	UPROPERTY(VisibleAnywhere, Category = Basic)
 		uint32 UserIndex;
-	
+	void SaveStar(int32 id, bool fileExists);
 };

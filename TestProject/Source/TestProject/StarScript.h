@@ -27,7 +27,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	UFUNCTION(BlueprintCallable, Category = "SaveIDTest")
-	void SaveIDTest();
+	void SaveIDTest(bool fileExists);
 	UFUNCTION(BlueprintCallable, Category = "LoadIDTest")
 	void LoadIDTest();
 };

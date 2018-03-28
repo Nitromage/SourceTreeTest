@@ -8,31 +8,34 @@ void ARockSpawner::Spawn()
 	if (rock)
 	{
 		UWorld* world = GetWorld();
-		if (world)
+		if (world && spawnPoint && center)
 		{
 			FActorSpawnParameters spawnParams;
 			FRotator rotator;
 			FVector spawnLocation = spawnPoint->GetActorLocation();
 			AActor* test = world->SpawnActor<AActor>(rock, spawnLocation, rotator, spawnParams);
 
-			UProperty* PropertyX = test->GetClass()->FindPropertyByName("CenterX");
-			if (PropertyX)
+			if (test)
 			{
-				//AActor* ptrValue = PropertyX->ContainerPtrToValuePtr<AActor>(test);
-				float* ptrValue = PropertyX->ContainerPtrToValuePtr<float>(test);
-				if (ptrValue)
+				UProperty* PropertyX = test->GetClass()->FindPropertyByName("CenterX");
+				if (PropertyX)
 				{
-					//*ptrValue = *center;
-					*ptrValue = center->GetActorLocation().X;
+					//AActor* ptrValue = PropertyX->ContainerPtrToValuePtr<AActor>(test);
+					float* ptrValue = PropertyX->ContainerPtrToValuePtr<float>(test);
+					if (ptrValue)
+					{
+						//*ptrValue = *center;
+						*ptrValue = center->GetActorLocation().X;
+					}
 				}
-			}
-			UProperty* PropertyY = test->GetClass()->FindPropertyByName("CenterY");
-			if (PropertyY)
-			{
-				float* ptrValue = PropertyY->ContainerPtrToValuePtr<float>(test);
-				if (ptrValue)
+				UProperty* PropertyY = test->GetClass()->FindPropertyByName("CenterY");
+				if (PropertyY)
 				{
-					*ptrValue = center->GetActorLocation().Y;
+					float* ptrValue = PropertyY->ContainerPtrToValuePtr<float>(test);
+					if (ptrValue)
+					{
+						*ptrValue = center->GetActorLocation().Y;
+					}
 				}
 			}
 		}

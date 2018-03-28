@@ -39,6 +39,10 @@ void UStarScript::LoadIDTest()
 
 	UMySaveGame* LoadGameInstance = Cast<UMySaveGame>(UGameplayStatics::CreateSaveGameObject(UMySaveGame::StaticClass()));
 	LoadGameInstance = Cast<UMySaveGame>(UGameplayStatics::LoadGameFromSlot(LoadGameInstance->SaveSlotName, LoadGameInstance->UserIndex));
+	for (int32 i = 0; i < LoadGameInstance->intArray.Num(); i++)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("LoadIDTest %d"), LoadGameInstance->intArray[i]);
+	}
 	if (LoadGameInstance->intArray.Contains(id)) {
 		owner->Destroy();
 		UE_LOG(LogTemp, Warning, TEXT("im in it"));
@@ -47,10 +51,10 @@ void UStarScript::LoadIDTest()
 		UE_LOG(LogTemp, Warning, TEXT("I am not in it"));
 	}
 }
-void UStarScript::SaveIDTest()
+void UStarScript::SaveIDTest(bool fileExists)
 {
 	UMySaveGame* SaveGameInstance = Cast<UMySaveGame>(UGameplayStatics::CreateSaveGameObject(UMySaveGame::StaticClass()));
-	SaveGameInstance->saveID = id;
+	SaveGameInstance->SaveStar(id, fileExists);
 	UGameplayStatics::SaveGameToSlot(SaveGameInstance, SaveGameInstance->SaveSlotName, SaveGameInstance->UserIndex);
 }
 

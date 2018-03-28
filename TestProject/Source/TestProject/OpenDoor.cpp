@@ -21,7 +21,7 @@ void UOpenDoor::BeginPlay()
 	Super::BeginPlay();
 
 	// ...
-	
+
 }
 
 
@@ -29,17 +29,15 @@ void UOpenDoor::BeginPlay()
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-	FRotator newLocation = door->GetActorRotation();
+	FVector newRotation = door->GetActorLocation();
 	//Z
-	/*if (PlateIsON ) {
-		newLocation.z -= speed * DeltaTime;
+	FVector ZAxisRotatedVector;
+	if (PlateIsON) {
+		//rotate 30 degrees around z axis
+		ZAxisRotatedVector = newRotation.RotateAngleAxis(30, FVector(0, 0, 1));
 	}
-	else if (!PlateIsON && newLocation.Z < ZMaxPos && isZ & !isY & !isX)
-	{
-		newLocation.Z += speed * DeltaTime;
-	}
-	*/
-	door->SetActorRotation(newLocation);
+	door->SetActorLocation(ZAxisRotatedVector);
 	// ...
 }
+
 

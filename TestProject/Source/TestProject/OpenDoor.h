@@ -16,9 +16,8 @@ private:
 		float speed;
 
 	UPROPERTY(EditAnywhere)
-		float ZMinPos;
-	UPROPERTY(EditAnywhere)
-		float ZMaxPos;
+		float rotateValue;
+	
 	
 	AActor* door = GetOwner();
 public:	

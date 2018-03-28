@@ -18,7 +18,7 @@ public:
 	UMySaveGame();
 	UPROPERTY(EditAnywhere)
 		int32 saveID;
-	UPROPERTY(VisibleAnywhere, Category = Basic)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Basic)
 		TArray<int32> intArray;
 	UPROPERTY(VisibleAnywhere, Category = Basic)
 		FString SaveSlotName;

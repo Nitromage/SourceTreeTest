@@ -15,6 +15,9 @@ private:
 	AActor* owner = GetOwner();
 	UPROPERTY(EditAnywhere)
 		int32 id;
+	
+
+
 public:	
 	// Sets default values for this component's properties
 	UStarScript();
@@ -28,6 +31,12 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	UFUNCTION(BlueprintCallable, Category = "SaveIDTest")
 	void SaveIDTest(bool fileExists);
-	UFUNCTION(BlueprintCallable, Category = "LoadIDTest")
+	UFUNCTION(BlueprintCallable, Category = "SaveIDTest")
 	void LoadIDTest();
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Basic)
+		int32 sendStar;
+	UFUNCTION(BlueprintCallable, Category = "SaveIDTest")
+	int32 ReturnArrayLenght(bool fileExists);
+
+
 };

@@ -11,7 +11,7 @@ void ARockSpawner::Spawn()
 		if (world && spawnPoint && center)
 		{
 			FActorSpawnParameters spawnParams;
-			FRotator rotator;
+			FRotator rotator = FRotator(0, 0, 0);
 			FVector spawnLocation = spawnPoint->GetActorLocation();
 			AActor* test = world->SpawnActor<AActor>(rock, spawnLocation, rotator, spawnParams);
 

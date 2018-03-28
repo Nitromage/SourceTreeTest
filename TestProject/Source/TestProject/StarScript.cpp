@@ -40,7 +40,7 @@ void UStarScript::LoadIDTest()
 	UMySaveGame* LoadGameInstance = Cast<UMySaveGame>(UGameplayStatics::CreateSaveGameObject(UMySaveGame::StaticClass()));
 	LoadGameInstance = Cast<UMySaveGame>(UGameplayStatics::LoadGameFromSlot(LoadGameInstance->SaveSlotName, LoadGameInstance->UserIndex));
 	if (LoadGameInstance->intArray.Contains(id)) {
-		//owner->Destroy();
+		owner->Destroy();
 		UE_LOG(LogTemp, Warning, TEXT("im in it"));
 	}
 	else {

@@ -22,7 +22,6 @@ public:
 		TArray<int32> intArray;
 	UPROPERTY(VisibleAnywhere, Category = Basic)
 		FString SaveSlotName;
-
 	UPROPERTY(VisibleAnywhere, Category = Basic)
 		uint32 UserIndex;
 	
